@@ -110,7 +110,7 @@ Gerät anhängen, im Dashboard **Steuerung** nutzen → im Log
 - [x] Verlauf und dauerhaftes Befehlsprotokoll aus der **SQLite**-Datenbank
 - [x] Fahrzeugwechsel und Spielstandwechsel im Dashboard glätten
 - [x] Dauerlauf über mehrere Stunden auf dem Tablet beobachten
-- [ ]  ** W.I.P ** Next Update Release Blinker-Automatik (Blinken nach Fahrtrichtungswechsel) prüfen
+- [ ] Next Update Release Blinker-Automatik (Blinken nach Fahrtrichtungswechsel) prüfen
 
 
 # Erweiterte Roadmap – kommende Funktionen
