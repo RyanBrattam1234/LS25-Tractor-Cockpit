@@ -108,9 +108,9 @@ Gerät anhängen, im Dashboard **Steuerung** nutzen → im Log
 
 ## Phase 5 – Stabilität
 - [x] Verlauf und dauerhaftes Befehlsprotokoll aus der **SQLite**-Datenbank
-- [ ] Fahrzeugwechsel und Spielstandwechsel im Dashboard glätten
-- [ ] Dauerlauf über mehrere Stunden auf dem Tablet beobachten
-- [ ] Blinker-Automatik (Blinken nach Fahrtrichtungswechsel) prüfen
+- [x] Fahrzeugwechsel und Spielstandwechsel im Dashboard glätten
+- [x] Dauerlauf über mehrere Stunden auf dem Tablet beobachten
+- [ ]  ** W.I.P Next Update Release Blinker-Automatik (Blinken nach Fahrtrichtungswechsel) prüfen
 
 
 # Erweiterte Roadmap – kommende Funktionen
