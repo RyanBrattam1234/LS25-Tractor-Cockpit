@@ -111,3 +111,170 @@ Gerät anhängen, im Dashboard **Steuerung** nutzen → im Log
 - [ ] Fahrzeugwechsel und Spielstandwechsel im Dashboard glätten
 - [ ] Dauerlauf über mehrere Stunden auf dem Tablet beobachten
 - [ ] Blinker-Automatik (Blinken nach Fahrtrichtungswechsel) prüfen
+
+
+# Erweiterte Roadmap – kommende Funktionen
+
+## Phase 5 – Stabilität und Zuverlässigkeit
+- [x] Verlauf und dauerhaftes Befehlsprotokoll über SQLite
+- [ ] Fahrzeugwechsel und Spielstandwechsel im Dashboard glätten
+- [ ] Dauerlauf über mehrere Stunden auf dem Tablet beobachten
+- [ ] Blinker-Automatik nach Fahrtrichtungswechsel prüfen
+- [ ] Automatische Erkennung einer neuen Spielsitzung
+- [ ] Wiederverbindung nach Server- oder Spielneustart
+- [ ] Verständliche Fehlermeldungen bei fehlenden Telemetriedaten
+- [ ] Schutz vor doppelten oder veralteten Messwerten
+- [ ] Stabilitätstest über 6–12 Stunden
+- [ ] Wiederherstellung des letzten Dashboard-Zustands nach Neuladen
+
+## Phase 6 – Fahrzeugprofile und Cockpit-Personalisierung
+- [ ] Automatische Erkennung des aktiven Fahrzeugs
+- [ ] Individuelles Dashboard-Profil für jeden Traktor
+- [ ] Fahrzeugspezifische Anzeigeelemente
+- [ ] Eigene Anordnung und Größe der Cockpit-Kacheln
+- [ ] Umschaltbare Ansichten für Traktor, Mähdrescher und andere Maschinen
+- [ ] Anzeige von Marke, Modell und Fahrzeugbild, sofern verfügbar
+- [ ] Benutzerdefinierte Warnschwellen für Drehzahl und Kraftstoff
+- [ ] Speicherung der Dashboard-Einstellungen lokal
+- [ ] Vollbildmodus für Laptop und Tablet
+- [ ] Umschaltbare helle und dunkle Benutzeroberfläche
+
+## Phase 7 – Erweiterte Telemetrie
+- [ ] Motortemperatur anzeigen, sofern das Spiel den Wert bereitstellt
+- [ ] Öl- und weitere Betriebsdaten prüfen, sofern verfügbar
+- [ ] Aktuellen Gang und Fahrtrichtung anzeigen, sofern auslesbar
+- [ ] Motorlast und Leistungsdaten ergänzen, sofern verfügbar
+- [ ] Kraftstoffverbrauch über Zeit berechnen
+- [ ] Durchschnitts- und Höchstgeschwindigkeit erfassen
+- [ ] Zurückgelegte Strecke pro Fahrt berechnen
+- [ ] Fahrzeit und Leerlaufzeit getrennt erfassen
+- [ ] Betriebsdaten zwischen Fahrten vergleichen
+- [ ] Warnungen bei ungewöhnlichen oder fehlenden Messwerten
+- [ ] Fahrzeug- und Gerätedaten übersichtlich zusammenführen
+
+## Phase 8 – GPS, Karte und Fahrtenaufzeichnung
+- [ ] Live-Position auf einer lokalen Karte darstellen
+- [ ] Zurückgelegte Fahrstrecke als GPS-Spur aufzeichnen
+- [ ] Fahrtaufzeichnung starten und stoppen
+- [ ] Fahrten mit Datum, Fahrzeug und Dauer speichern
+- [ ] Geschwindigkeit entlang der Fahrstrecke visualisieren
+- [ ] Arbeitsbereiche und wiederkehrende Fahrwege dokumentieren
+- [ ] Koordinaten und Fahrtdaten exportieren
+- [ ] Letzte Fahrzeugposition nach einer Fahrt anzeigen
+- [ ] Kartenansicht für Laptop und Tablet optimieren
+
+Hinweis: Eine richtige Karte benötigt geeignetes Kartenmaterial. Die reine Weltposition aus dem Spiel reicht noch nicht für eine fertige Kartenansicht.
+
+## Phase 9 – Geräteverwaltung 2.0
+- [ ] Mehr als zwei Anbauebenen zuverlässig erkennen
+- [ ] Anzahl der erkannten Geräte dynamisch erweitern
+- [ ] Geräte in einer übersichtlichen Baumstruktur darstellen
+- [ ] Anbaugeräte mit Namen und Symbolen kennzeichnen
+- [ ] Arbeitsstatus aller erkannten Geräte zusammenfassen
+- [ ] Gerätewechsel ohne Neuladen des Dashboards erkennen
+- [ ] Füllstände von Anhängern und Arbeitsgeräten getrennt darstellen
+- [ ] Arbeitsbreite und weitere Geräteeigenschaften auslesen, sofern verfügbar
+- [ ] Arbeitszeit pro Gerät erfassen
+- [ ] Geräteprofile für häufig verwendete Kombinationen speichern
+
+## Phase 10 – Steuerung und Bedienkomfort
+- [ ] Bestätigung vor kritischen Aktionen
+- [ ] Statusanzeige für laufende, bestätigte und fehlgeschlagene Befehle
+- [ ] Doppelklickschutz für sämtliche Steuerungsschaltflächen
+- [ ] Sicherheitsabschaltung der Fernsteuerung
+- [ ] Steuerung automatisch sperren, wenn die Verbindung veraltet ist
+- [ ] Gerätewechsel während eines laufenden Befehls sicher behandeln
+- [ ] Steuerung nur für ausdrücklich unterstützte Funktionen freigeben
+- [ ] Lichtsteuerung bei Fahrzeugwechsel neu synchronisieren
+- [ ] Individuelle Schaltflächen für häufig verwendete Aktionen
+- [ ] Optionaler Bestätigungsmodus für jede Steueraktion
+- [ ] Steuerbefehle mit Zeitstempel und Ergebnis dokumentieren
+- [ ] Alle Aktionen weiterhin über eine feste Whitelist begrenzen
+
+Wichtig: Neue Steuerfunktionen werden erst freigegeben, nachdem ihre Spiel-API, ihre Auswirkungen und die sichere Rückmeldung geprüft wurden.
+
+## Phase 11 – Verlauf, Statistiken und Berichte
+- [ ] Fahrten automatisch in einzelne Sitzungen aufteilen
+- [ ] Tages-, Wochen- und Monatsstatistiken erstellen
+- [ ] Kraftstoffverbrauch pro Fahrt vergleichen
+- [ ] Betriebsstunden je Fahrzeug auswerten
+- [ ] Arbeitszeit und Fahrzeit vergleichen
+- [ ] Höchstgeschwindigkeit und Drehzahlverlauf grafisch darstellen
+- [ ] Anbaugeräte nach Nutzungshäufigkeit auswerten
+- [ ] Filter nach Fahrzeug, Zeitraum und Spielstand
+- [ ] Fahrtdaten als CSV und JSON exportieren
+- [ ] Diagnosebericht für Fehlerfälle erstellen
+- [ ] Verlauf bei Bedarf archivieren und alte Daten bereinigen
+- [ ] Datenbankintegrität regelmäßig prüfen
+
+## Phase 12 – Modernes Tablet-Cockpit
+- [ ] Eigenständiges Tablet-Layout für Android
+- [ ] Große, gut erreichbare Schaltflächen
+- [ ] Kompakte Fahransicht mit Geschwindigkeit, Drehzahl und Kraftstoff
+- [ ] Separate Arbeitsansicht für Anbaugeräte
+- [ ] Separate Licht- und Steuerungsansicht
+- [ ] Automatische Anpassung an Hoch- und Querformat
+- [ ] Touch-Bedienung ohne versehentliche Doppelauslösung
+- [ ] Reduzierte Animationen für schwächere Geräte
+- [ ] Lesbare Warnmeldungen auch bei kleiner Bildschirmgröße
+- [ ] Verbindung und Aktualität der Daten jederzeit sichtbar
+
+## Phase 13 – Diagnose und Systemüberwachung
+- [ ] Live-Anzeige der Telemetrie-Aktualisierungsrate
+- [ ] Erkennung ungewöhnlich langer Aktualisierungspausen
+- [ ] Messung der Verzögerung zwischen Spiel und Dashboard
+- [ ] Anzeige des letzten erfolgreichen Datenempfangs
+- [ ] Prüfung von Datei-, Server- und Datenbankzugriff
+- [ ] Automatischer Selbsttest beim Serverstart
+- [ ] Erkennung beschädigter oder unvollständiger Telemetriedaten
+- [ ] Diagnoseexport mit relevanten Fehlerprotokollen
+- [ ] Ressourcenverbrauch und Speicherentwicklung überwachen
+- [ ] Optionale Aufbewahrungsgrenzen für Protokolle
+
+## Phase 14 – Sicherheit und Netzwerk
+- [ ] Fernsteuerung standardmäßig deaktiviert lassen
+- [ ] Zugriff auf bekannte Geräte im lokalen Netzwerk beschränken
+- [ ] Optionaler Zugriffsschutz mit Anmeldung
+- [ ] Sitzungsschutz für Steuerbefehle
+- [ ] Strikte Prüfung aller eingehenden Werte
+- [ ] Schutz gegen wiederholte und veraltete Befehle
+- [ ] Netzwerkzugriff und Fernsteuerung getrennt aktivieren
+- [ ] Sicherheitsprüfung vor jeder neuen Steuerfunktion
+- [ ] Keine unnötige Freigabe des Servers ins Internet
+- [ ] Dokumentierte Notabschaltung der Steuerung
+
+## Phase 15 – Export und Erweiterbarkeit
+- [ ] Lokale JSON-API für weitere Dashboard-Komponenten
+- [ ] Dokumentation aller verfügbaren Telemetriedaten
+- [ ] Versionierung des Datenformats
+- [ ] Kompatibilitätsprüfung nach FS25-Updates
+- [ ] Import und Export von Dashboard-Konfigurationen
+- [ ] Schnittstelle für eigene lokale Erweiterungen
+- [ ] Export von Fahrten für externe Auswertungen
+- [ ] Automatisierte Tests nach Änderungen am Mod
+- [ ] Installations- und Updateprüfung verbessern
+- [ ] Versionsübersicht für Mod, Server und Dashboard
+
+## Phase 16 – Wartung und Betrieb
+- [ ] Wartungsübersicht je Fahrzeug
+- [ ] Erinnerungen anhand der erfassten Betriebsstunden
+- [ ] Manuelle Wartungseinträge speichern
+- [ ] Reparatur- und Wartungshistorie dokumentieren
+- [ ] Wartungsdaten als Bericht exportieren
+- [ ] Individuelle Wartungsintervalle konfigurierbar machen
+- [ ] Optionaler Kostenüberblick für Wartungsarbeiten
+
+Hinweis: Das Cockpit kann Wartungsintervalle berechnen und erinnern. Tatsächlicher Verschleiß, Ölzustand oder andere nicht verfügbare Spielwerte dürfen dabei nicht einfach erfunden werden.
+
+## Phase 17 – Release 2.0
+- [ ] Vollständiger Integrationstest mit mehreren Fahrzeugen
+- [ ] Test mit Pflug, Anhänger, Ballenpresse und weiteren Geräten
+- [ ] Mehrstündiger Dauerlauf mit PC und Android-Tablet
+- [ ] Prüfung nach einem Neustart von Spiel und Server
+- [ ] Wiederherstellung nach Verbindungsabbrüchen testen
+- [ ] Steuerungsfunktionen auf einem Sicherungsspielstand testen
+- [ ] Dokumentation für Installation und Fehlerbehebung erstellen
+- [ ] Bekannte Einschränkungen dokumentieren
+- [ ] Versionsnummern und Änderungsprotokoll pflegen
+- [ ] Release-Paket mit Installationsprüfung erstellen
+- [ ] Freigabe von Version 2.0 nach bestandenen Tests
