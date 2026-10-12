@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- descVersion 114 = ModDesc-Version von FS25 v1.24.0.0 (siehe log.txt:
+     "ModDesc Version: 114"). Bei einem Spiel-Update hier nachziehen. -->
+<modDesc descVersion="114">
+    <author>Local Tractor Cockpit Project</author>
+    <version>0.7.0.0</version>
+    <title>
+        <en>Tractor Cockpit Telemetry</en>
+        <de>Traktor-Cockpit Telemetrie</de>
+    </title>
+    <description>
+        <en>Read-only telemetry plus a whitelisted control channel for a local browser dashboard. Fast file channel, log fallback, implements, verified state feedback.</en>
+        <de>Nur lesende Telemetrie plus ein freigegebener Steuerkanal fuer ein lokales Browser-Dashboard. Schneller Datei-Kanal, Log-Rueckfall, Anbaugeraete, verifizierte Zustandsrueckmeldung.</de>
+    </description>
+    <multiplayer supported="false"/>
+    <extraSourceFiles>
+        <sourceFile filename="scripts/TractorCockpit.lua"/>
+    </extraSourceFiles>
+</modDesc>

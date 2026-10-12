@@ -1,0 +1,7 @@
+# Es werden keine externen Python-Pakete benoetigt.
+# Alles laeuft mit der Python-Standardbibliothek (getestet mit Python 3.14,
+# empfohlen 3.10 oder neuer).
+#
+# Server starten:   python server\server.py
+# Selbsttest:       python tools\selftest.py
+# Lua pruefen:      python tools\lua_check.py

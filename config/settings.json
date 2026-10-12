@@ -1,0 +1,23 @@
+{
+  "_hinweis": "log_path leer lassen ('') = der Server sucht die LS25-Logdatei automatisch, auch bei deutschem 'Dokumente'-Ordner oder OneDrive-Umleitung.",
+  "_hinweis2": "telemetry_file leer lassen ('') = <Spielprofil>/modSettings/FS25_TractorCockpit.txt (schneller Datei-Kanal des Mods). Der Server nimmt immer den frischesten Kanal.",
+  "_hinweis3": "host 0.0.0.0 = auch vom Tablet im WLAN erreichbar. stale_seconds = ab wann Daten als veraltet gelten. poll_ms = Abfragetakt des Dashboards.",
+  "_hinweis4": "control_enabled = Steuerung erlauben (Fahrzeugbefehle). Standard false. Alternativ Server mit --enable-control starten. Vorher Spielstand sichern: tools/backup_savegame.ps1.",
+  "_hinweis5": "database leer lassen ('') = server/data/history.sqlite3. history_retention_days = wie lange Messungen aufgehoben werden, history_max_rows = harte Obergrenze.",
+  "host": "0.0.0.0",
+  "port": 8765,
+  "log_path": "",
+  "telemetry_file": "",
+  "stale_seconds": 15,
+  "poll_ms": 500,
+  "control_enabled": false,
+  "command_file": "",
+  "command_timeout_seconds": 5,
+  "command_min_interval_ms": 500,
+  "database": "",
+  "history_enabled": true,
+  "history_retention_days": 7,
+  "history_max_rows": 500000,
+  "history_min_interval_ms": 500,
+  "history_max_interval_ms": 5000
+}

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c110e">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Tractor Cockpit</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23a5e34d'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='bold' text-anchor='middle' fill='%23101710'%3ETC%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brandmark">TC</div>
+      <div class="brand-text">
+        <div class="eyebrow">FARM SYSTEMS / FS25</div>
+        <h1>Tractor Cockpit</h1>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="vehicle-chip" id="topVehicle">—</div>
+      <div class="connection">
+        <span id="dot" class="dot"></span>
+        <span id="connectionText">Verbinde…</span>
+        <span id="agePill" class="age-pill" hidden>--</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Bereiche">
+    <button class="tab is-active" role="tab" data-tab="cockpit" aria-selected="true">Cockpit</button>
+    <button class="tab" role="tab" data-tab="devices" aria-selected="false">Geräte <span class="tab-count" id="tabDeviceCount">0</span></button>
+    <button class="tab" role="tab" data-tab="control" aria-selected="false">Steuerung</button>
+    <button class="tab" role="tab" data-tab="history" aria-selected="false">Verlauf</button>
+    <button class="tab" role="tab" data-tab="diag" aria-selected="false">Diagnose</button>
+  </nav>
+
+  <main class="content">
+    <!-- ================= COCKPIT ================= -->
+    <section class="tab-panel is-active" id="tab-cockpit" role="tabpanel">
+      <div class="hero panel">
+        <div class="hero-copy">
+          <div class="eyebrow">AKTUELLES FAHRZEUG</div>
+          <h2 id="vehicleName">Warte auf LS25</h2>
+          <p id="message">Starte LS25, aktiviere den Mod und setze dich in einen Traktor.</p>
+        </div>
+        <div class="speedbox">
+          <div class="eyebrow">GESCHWINDIGKEIT</div>
+          <div class="speedline"><span id="speed">--</span><small>km/h</small></div>
+          <div class="subtle">getLastSpeed() – Einheit km/h im Spielquelltext bestätigt.</div>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <article class="metric panel">
+          <div class="metric-head"><span class="metric-icon">RPM</span><span class="eyebrow">DREHZAHL</span></div>
+          <div class="metric-value"><span id="rpm">--</span><small>U/min</small></div>
+          <div class="track"><span id="rpmBar"></span></div>
+          <div class="metric-foot" id="rpmFoot">Motorlast: --</div>
+        </article>
+        <article class="metric panel">
+          <div class="metric-head"><span class="metric-icon">◒</span><span class="eyebrow">KRAFTSTOFF</span></div>
+          <div class="metric-value"><span id="fuel">--</span><small id="fuelUnit">Liter</small></div>
+          <div class="track"><span id="fuelBar"></span></div>
+          <div class="metric-foot" id="fuelCapacity">Füllstand nicht verfügbar</div>
+        </article>
+        <article class="metric panel">
+          <div class="metric-head"><span class="metric-icon">ENG</span><span class="eyebrow">MOTOR</span></div>
+          <div class="status-value" id="engine">--</div>
+          <div class="metric-foot" id="engineFoot">Erkannter Zustand</div>
+        </article>
+        <article class="metric panel">
+          <div class="metric-head"><span class="metric-icon">H</span><span class="eyebrow">BETRIEBSSTUNDEN</span></div>
+          <div class="metric-value"><span id="hours">--</span><small>h</small></div>
+          <div class="metric-foot" id="hoursFoot">Gesamtlaufzeit</div>
+        </article>
+      </div>
+
+      <div class="lower-grid">
+        <article class="panel section-panel">
+          <div class="section-title">
+            <div><div class="eyebrow">POSITION</div><h3>Weltkoordinaten</h3></div>
+            <span class="pill" id="posPill">LIVE</span>
+          </div>
+          <div class="coords">
+            <div><span>X</span><strong id="x">--</strong></div>
+            <div><span>Y</span><strong id="y">--</strong></div>
+            <div><span>Z</span><strong id="z">--</strong></div>
+          </div>
+          <p class="subtle">Aus getWorldTranslation() der Spiel-Engine.</p>
+        </article>
+        <article class="panel section-panel">
+          <div class="section-title">
+            <div><div class="eyebrow">LICHT</div><h3>Beleuchtung</h3></div>
+            <span class="pill muted" id="lightPillCockpit">—</span>
+          </div>
+          <div class="light-summary" id="lightSummary">
+            <p class="subtle">Keine Lichtdaten.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= GERÄTE ================= -->
+    <section class="tab-panel" id="tab-devices" role="tabpanel">
+      <div class="panel section-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">ANBAUGERÄTE</div><h3>Angehängte Geräte</h3></div>
+          <span class="pill muted" id="implPill">KEINE</span>
+        </div>
+        <div class="impl-list" id="implements">
+          <p class="subtle">Kein Gerät angehängt.</p>
+        </div>
+        <p class="subtle">Nur Werte, die das Gerät wirklich liefert: gesenkt, aufgeklappt, eingeschaltet, Arbeitszone aktiv, Füllstand.</p>
+      </div>
+    </section>
+
+    <!-- ================= STEUERUNG ================= -->
+    <section class="tab-panel" id="tab-control" role="tabpanel">
+      <div class="panel section-panel" id="controlPanel">
+        <div class="section-title">
+          <div><div class="eyebrow">STEUERUNG</div><h3>Fahrzeug &amp; Geräte</h3></div>
+          <span class="pill muted" id="controlPill">PRÜFE…</span>
+        </div>
+        <p class="subtle" id="controlHint">Steuerung wird geprüft…</p>
+        <p class="control-status" id="controlStatus"></p>
+      </div>
+
+      <div class="panel section-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">LICHT</div><h3>Beleuchtung schalten</h3></div>
+          <span class="pill muted" id="lightPill">—</span>
+        </div>
+        <p class="subtle" id="lightHint">Nur Lampen, die dieses Fahrzeug wirklich hat.</p>
+        <div class="button-grid" id="lightButtons"></div>
+        <div class="button-row" id="lightCycleRow"></div>
+      </div>
+
+      <div class="panel section-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">BLINKER</div><h3>Richtungsanzeiger</h3></div>
+          <span class="pill muted" id="turnPill">—</span>
+        </div>
+        <div class="button-row" id="turnButtons"></div>
+        <div class="metric-foot">Warnblinker schaltet links und rechts zusammen.</div>
+      </div>
+
+      <div class="panel section-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">GERÄTE</div><h3>Anbaugeräte bedienen</h3></div>
+          <span class="pill muted" id="devicePill">—</span>
+        </div>
+        <div class="control-list" id="controls"></div>
+      </div>
+
+      <div class="panel section-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">PROTOKOLL</div><h3>Befehlsverlauf</h3></div>
+          <span class="pill muted">AUS DATENBANK</span>
+        </div>
+        <div class="command-log" id="commandLog"></div>
+      </div>
+    </section>
+
+    <!-- ================= VERLAUF ================= -->
+    <section class="tab-panel" id="tab-history" role="tabpanel">
+      <div class="panel section-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">VERLAUF</div><h3>Geschwindigkeit &amp; Drehzahl</h3></div>
+          <span class="pill muted" id="historyPill">30 MIN</span>
+        </div>
+        <div class="history-stats" id="historyStats">Lade Verlauf…</div>
+        <canvas id="historyChart" class="history-chart" height="220"></canvas>
+        <p class="subtle" id="historyNote">Verlauf aus der lokalen SQLite-Datenbank.</p>
+      </div>
+      <div class="panel section-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">KENNZAHLEN</div><h3>Aus dem Verlauf</h3></div>
+        </div>
+        <dl class="diag">
+          <div><dt>Messungen</dt><dd id="histSamples">--</dd></div>
+          <div><dt>Höchstgeschwindigkeit</dt><dd id="histSpeed">--</dd></div>
+          <div><dt>Höchstdrehzahl</dt><dd id="histRpm">--</dd></div>
+          <div><dt>Betriebsstunden im Zeitraum</dt><dd id="histHours">--</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================= DIAGNOSE ================= -->
+    <section class="tab-panel" id="tab-diag" role="tabpanel">
+      <div class="panel section-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">VERBINDUNG</div><h3>Datenquelle</h3></div>
+          <span class="pill muted" id="modPill">UNBEKANNT</span>
+        </div>
+        <dl class="diag">
+          <div><dt>Kanal</dt><dd id="diagChannel">--</dd></div>
+          <div><dt>Logdatei</dt><dd id="diagLog">--</dd></div>
+          <div><dt>Herkunft</dt><dd id="diagSource">--</dd></div>
+          <div><dt>Alter der Daten</dt><dd id="diagAge">--</dd></div>
+          <div><dt>Loggröße</dt><dd id="diagLogSize">--</dd></div>
+          <div><dt>Log-Wachstum</dt><dd id="diagRate">--</dd></div>
+          <div><dt>Abfragetakt</dt><dd id="diagPoll">--</dd></div>
+          <div><dt>Serverzeit</dt><dd id="diagServer">--</dd></div>
+        </dl>
+      </div>
+      <div class="panel section-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">LEISTUNG</div><h3>Server-Messwerte</h3></div>
+          <span class="pill muted" id="perfPill">LIVE</span>
+        </div>
+        <dl class="diag">
+          <div><dt>Erfassung Ø / max</dt><dd id="perfSample">--</dd></div>
+          <div><dt>davon Datei lesen</dt><dd id="perfRead">--</dd></div>
+          <div><dt>davon Datenbank</dt><dd id="perfStore">--</dd></div>
+          <div><dt>Antwortgröße</dt><dd id="perfPayload">--</dd></div>
+          <div><dt>API-Anfragen</dt><dd id="perfRequests">--</dd></div>
+          <div><dt>Datenbank</dt><dd id="diagDb">--</dd></div>
+          <div><dt>Messungen gespeichert</dt><dd id="perfRows">--</dd></div>
+        </dl>
+        <p class="subtle">Die Erfassung läuft im Hintergrund; Abrufe liefern den Zwischenspeicher und kosten kaum Rechenzeit.</p>
+      </div>
+      <div class="panel section-panel">
+        <div class="section-title">
+          <div><div class="eyebrow">STEUERKANAL</div><h3>Rückkanal ins Spiel</h3></div>
+          <span class="pill muted" id="cmdModePill">—</span>
+        </div>
+        <dl class="diag">
+          <div><dt>Modus</dt><dd id="diagCmdMode">--</dd></div>
+          <div><dt>Befehlsdatei</dt><dd id="diagCmdPath">--</dd></div>
+          <div><dt>Lesefehler der Mod</dt><dd id="diagCmdReadErrors">--</dd></div>
+          <div><dt>Schreibfehler Server</dt><dd id="diagCmdWriteErrors">--</dd></div>
+        </dl>
+        <p class="subtle">FS25 erlaubt Mods nur das Schreiben von Dateien; gelesen wird über die XML-API des Spiels.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>TRACTOR COCKPIT · V1 · LOKAL</span><span id="updated">Warte auf Daten…</span></footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
